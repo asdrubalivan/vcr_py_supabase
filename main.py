@@ -13,7 +13,7 @@ def create_contact(name, email):
     url = f'{SUPABASE_URL}/rest/v1/contacts'
     data = {'name': name, 'email': email}
     response = requests.post(url, headers=HEADERS, json=data)
-    return response.json()
+    return response
 
 # Retrieve all contacts
 def get_contacts():
@@ -26,7 +26,7 @@ def update_contact(contact_id, new_email):
     url = f'{SUPABASE_URL}/rest/v1/contacts?id=eq.{contact_id}'
     data = {'email': new_email}
     response = requests.patch(url, headers=HEADERS, json=data)
-    return response.json()
+    return response
 
 # Delete a contact
 def delete_contact(contact_id):
